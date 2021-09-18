@@ -1,0 +1,14 @@
+# ignore everything but belows
+/*
+!.gitignore
+
+# essentials
+!/profile.d
+!/systemd
+
+# GUI related
+!/fontconfig
+!/i3
+!/kitty
+!/picom
+!/rofi

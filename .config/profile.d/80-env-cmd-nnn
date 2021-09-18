@@ -1,0 +1,9 @@
+#!/bin/bash
+export NNN_TRASH=1
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="f:finder"
+for i in \
+  "p:preview-tui"
+do
+  export NNN_PLUG="$NNN_PLUG;$i"
+done

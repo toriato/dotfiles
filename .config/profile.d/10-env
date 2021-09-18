@@ -1,0 +1,8 @@
+#!/bin/bash
+export GOPATH="$HOME/.go"
+export WINEPREFIX="$HOME/.wine"
+export WINEARCH="win64"
+
+export EDITOR="vim"
+export VISUAL=$EDITOR
+export SUDO_EDITOR=$EDITOR

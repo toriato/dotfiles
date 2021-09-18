@@ -1,0 +1,11 @@
+#!/bin/bash
+for i in \
+  "$GOPATH/bin" \
+  "$WINEPREFIX/bin" \
+  "$HOME/.local/bin" \
+  "$HOME/.local/bin/scripts" \
+  "$HOME/.local/bin/aliases"
+do
+  export PATH="$PATH:$i"
+done
+

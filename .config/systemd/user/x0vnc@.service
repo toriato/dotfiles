@@ -1,0 +1,10 @@
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x0vncserver -SecurityTypes None,TLSNone -display %i
+   
+[Install]
+WantedBy=multi-user.target

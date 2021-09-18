@@ -1,0 +1,59 @@
+* {
+  primary: #FFB300;
+  secondary: #E53935;
+  background: #1F1F1F;
+  foreground: #FFFFFF;
+  
+  alternate-normal-background: #151515;
+  selected-normal-background: var(primary);
+  selected-normal-foreground: var(background);
+
+  active-background: var(secondary);
+  active-foreground: var(background);
+  alternate-active-background: #B32D29;
+  alternate-active-foreground: var(background);
+  selected-active-background: #e57635;
+  selected-active-foreground: var(background);
+
+  font: "D2Coding ligature 12";
+}
+
+window {
+  anchor: north;
+  location: north;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  children: [ box ];
+}
+
+box {
+  orientation: horizontal;
+  children: [ prompt, entry, listview ];
+  padding: 0;
+}
+
+prompt {
+  padding: 6px 0.5em;
+}
+
+entry {
+  expand: false;
+  width: 10em;
+  padding: 6px 0;
+  placeholder: "...";
+}
+
+element {
+  padding: 6px 8px;
+  spacing: 0;
+}
+
+listview {
+  layout: horizontal;
+  lines: 100;
+  spacing: 0;
+  padding: 0;
+  border: 0;
+}
+

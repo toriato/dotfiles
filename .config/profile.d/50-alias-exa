@@ -1,0 +1,6 @@
+#!/bin/bash
+alias ls="exa --icons --time-style=iso -l"
+alias la="ls -a"
+alias lh="ls -h"
+alias l="exa --icons -G"
+

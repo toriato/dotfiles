@@ -1,0 +1,17 @@
+#!/bin/bash
+xmodmap -e 'keycode 108 = Hangul'
+xmodmap -e 'keycode 105 = Hangul_Hanja'
+
+export LANGUAGE=ko_KR.utf8
+export LANG=ko_KR.utf8
+export LC_ALL=ko_KR.utf8
+
+export GLFW_IM_MODULE=ibus
+export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE=nimf
+export QT_IM_MODULE=nimf
+export XMODIFIERS='@im=nimf'
+nimf &
+
+# TODO: 따로 디렉터리나 파일을 만들어 관리하기
+alias gsm="google-chrome-stable --new-window --app=http://hcvsscn.gsretail.com/cssc/index.html"

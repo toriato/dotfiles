@@ -1,4 +1,4 @@
-# initalize zgen and prezto
+# zgen 디렉터리가 없다면 zgen 과 prezto 초기화하기
 if [ ! -d "${ZDOTDIR:-$HOME}/.zgen" ]; then
   git clone https://github.com/tarjoilija/zgen.git "${ZDOTDIR:-$HOME}/.zgen"
   
@@ -14,12 +14,14 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.zgen" ]; then
   done
 fi
 
+###################################
 # zgen
+###################################
 source "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
   zgen prezto
 
-  # prezto modules
+  # prezto 모듈
   for i in \
     'environment' \
     'terminal' \
@@ -33,7 +35,7 @@ if ! zgen saved; then
     'prompt'
   do zgen prezto $i; done
 
-  # modules
+  # zsh 모듈
   for i in \
     'zdharma/fast-syntax-highlighting' \
     'Aloxaf/fzf-tab'
@@ -44,10 +46,9 @@ if ! zgen saved; then
   source "$ZGEN_DIR/init.zsh"
 fi
 
-# disable autocomplection
+# 자동 완성 끄기
 unsetopt correct
 unsetopt correctall
 DISABLE_CORRECTION=true
 
-# run profile.d scripts
-for i in ${XDG_CONFIG_HOME:-$HOME/.config}/profile.d/*; do . "$i"; done
+source $HOME/.profile

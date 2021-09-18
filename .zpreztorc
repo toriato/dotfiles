@@ -1,20 +1,18 @@
 #!/bin/bash
 
-# Color output (auto set to 'no' on dumb terminals).
+# 출력에 색상 넣기
 zstyle ':prezto:*:*' color 'yes'
 
-# Set the key mapping style to 'emacs' or 'vi'.
+# 터미널 맵핑을 vi 와 비슷하게 설정하기
 zstyle ':prezto:module:editor' key-bindings 'vi'
 
-# Auto convert .... to ../..
+# .... 같은 입력을 ../../ 형태로 자동 변환하기
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-# Set the Pacman frontend.
+# pacman 프론트엔드 설정하기
 zstyle ':prezto:module:pacman' frontend 'yay'
 
-# Set the prompt theme to load.
-# Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
+# 프롬프트 테마 설정하기
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then

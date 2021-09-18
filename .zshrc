@@ -21,21 +21,6 @@ source "${ZDOTDIR:-$HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
   zgen prezto
 
-  # prezto 모듈
-  for i in \
-    'environment' \
-    'terminal' \
-    'editor' \
-    'history' \
-    'directory' \
-    'spectrum' \
-    'utility' \
-    'completion' \
-    'history-substring-search' \
-    'prompt'
-  do zgen prezto $i; done
-
-  # zsh 모듈
   for i in \
     'zdharma/fast-syntax-highlighting' \
     'Aloxaf/fzf-tab'

@@ -4,12 +4,15 @@
 
 # essentials
 !/profile.d
-!/systemd
 
-# GUI related
-!/fontconfig
-!/i3
-!/kitty
-!/picom
-!/polybar
-!/rofi
+# command related
+!systemd
+!vim
+
+# display related
+!fontconfig
+!i3
+!kitty
+!picom
+!polybar
+!rofi

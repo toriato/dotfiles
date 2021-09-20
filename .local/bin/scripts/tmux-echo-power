@@ -1,0 +1,8 @@
+#!/bin/bash
+BATDIR="/sys/class/power_supply/BAT1"
+
+if [ -d $BATDIR ]; then
+  i=$(cat $BATDIR/charge_now)
+  j=$(cat $BATDIR/charge_full)
+  printf "B(%.f)" $(awk "BEGIN{print $i/$j*100}")
+fi

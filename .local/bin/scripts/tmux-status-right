@@ -1,0 +1,7 @@
+#!/bin/bash
+for i in \
+  tmux-echo-power \
+  tmux-echo-timedate
+do
+  printf "$($i) "
+done

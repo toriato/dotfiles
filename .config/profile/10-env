@@ -1,4 +1,8 @@
 #!/bin/bash
+LANGUAGE=en_US.utf8
+LANG=en_US.utf8
+LC_ALL=en_US.utf8
+
 if [[ $(which go) ]]; then
   GOPATH="$HOME/.go"
 fi

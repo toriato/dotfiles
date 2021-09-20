@@ -6,6 +6,6 @@ for i in \
   "$HOME/.local/bin/scripts" \
   "$HOME/.local/bin/aliases"
 do
-  export PATH="$PATH:$i"
+  PATH="$PATH:$i"
 done
 

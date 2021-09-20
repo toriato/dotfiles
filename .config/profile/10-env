@@ -1,8 +1,15 @@
 #!/bin/bash
-export GOPATH="$HOME/.go"
-export WINEPREFIX="$HOME/.wine"
-export WINEARCH="win64"
+if [[ $(which go) ]]; then
+  GOPATH="$HOME/.go"
+fi
 
-export EDITOR="vim"
-export VISUAL=$EDITOR
-export SUDO_EDITOR=$EDITOR
+if [[ $(which wine) ]]; then
+  WINEPREFIX="$HOME/.wine"
+  WINEARCH="win64"
+fi
+
+if [[ $(which vim) ]]; then
+  EDITOR="vim"
+  VISUAL=$EDITOR
+  SUDO_EDITOR=$EDITOR
+fi

@@ -1,17 +1,18 @@
 #!/bin/bash
-alias sc="systemctl --user"
-alias scs="sc start"
-alias scr="sc restart"
-alias scq="sc stop"
-alias sct="sc status"
-alias sce="sc enable"
-alias scd="sc disable"
+if [[ $(which systemctl) ]]; then
+  alias sc="systemctl --user"
+  alias scs="sc start"
+  alias scr="sc restart"
+  alias scq="sc stop"
+  alias sct="sc status"
+  alias sce="sc enable"
+  alias scd="sc disable"
 
-alias ssc="sudo systemctl"
-alias sscs="ssc start"
-alias sscr="ssc restart"
-alias sscq="ssc stop"
-alias ssct="ssc status"
-alias ssce="ssc enable"
-alias sscd="ssc disable"
-
+  alias ssc="sudo systemctl"
+  alias sscs="ssc start"
+  alias sscr="ssc restart"
+  alias sscq="ssc stop"
+  alias ssct="ssc status"
+  alias ssce="ssc enable"
+  alias sscd="ssc disable"
+fi

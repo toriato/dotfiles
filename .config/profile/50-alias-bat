@@ -1,3 +1,4 @@
 #!/bin/bash
-alias cat="bat --paging=never"
-
+if [[ $(which bat) ]]; then
+  alias cat="bat --paging=never"
+fi

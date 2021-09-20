@@ -1,9 +1,11 @@
 #!/bin/bash
-export NNN_TRASH=1
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_PLUG="f:finder"
-for i in \
-  "p:preview-tui"
-do
-  export NNN_PLUG="$NNN_PLUG;$i"
-done
+if [[ $(which nnn) ]]; then
+  NNN_TRASH=1
+  NNN_FIFO="/tmp/nnn.fifo"
+  NNN_PLUG="f:finder"
+  for i in \
+    "p:preview-tui"
+  do
+    NNN_PLUG="$NNN_PLUG;$i"
+  done
+fi

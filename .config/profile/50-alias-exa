@@ -1,6 +1,7 @@
 #!/bin/bash
-alias ls="exa --icons --time-style=iso -l"
-alias la="ls -a"
-alias lh="ls -h"
-alias l="exa --icons -G"
-
+if [[ $(which exa) ]]; then
+  alias ls="exa --icons --time-style=iso -l"
+  alias la="ls -a"
+  alias lh="ls -h"
+  alias l="exa --icons -G"
+fi

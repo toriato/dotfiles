@@ -6,27 +6,25 @@
 # token can be generate from https://dash.cloudflare.com/profile/api-tokens
 # requires Zone.DNS permission to update DNS record
 # more info on https://api.cloudflare.com/#getting-started-requests
-TOKEN="GCsCkzQEoAWjDjqnYKW-Ym8Bdu-y1T7_gbjMslR8"
 
-DNS=(
-  "vmm.pw"
-)
-
-ENDPOINT="https://api.cloudflare.com/client/v4"
+# $CF_DDNS_TOKEN
+# $CF_DDNS_DNS
 
 remoteIP=$(curl -sSX GET "https://api.ipify.org")
 echo "Current remote IP address is $remoteIP"
 
-zones=$(curl -sSX GET "$ENDPOINT/zones" \
-  -H "Authorization: Bearer $TOKEN" \
+endpoint="https://api.cloudflare.com/client/v4"
+
+zones=$(curl -sSX GET "$endpoint/zones" \
+  -H "Authorization: Bearer $CF_DDNS_TOKEN" \
   -H "Content-Type: application/json")
 
 for (( i = 0; i < $(jq ".result | length" <<< $zones); i++ )); do
   zone=$(jq ".result[$i]" <<< $zones)
   zoneID=$(jq -r ".id" <<< $zone)
 
-  records=$(curl -sSX GET "$ENDPOINT/zones/$zoneID/dns_records" \
-    -H "Authorization: Bearer $TOKEN" \
+  records=$(curl -sSX GET "$endpoint/zones/$zoneID/dns_records" \
+    -H "Authorization: Bearer $CF_DDNS_TOKEN" \
     -H "Content-Type: application/json")
 
   for (( j = 0; j < $(jq ".result | length" <<< $records); j++ )); do
@@ -37,7 +35,7 @@ for (( i = 0; i < $(jq ".result | length" <<< $zones); i++ )); do
     recordType=$(jq -r .type <<< $record)
     recordTTL=$(jq -r .ttl <<< $record)
 
-    if [[ "${DNS[*]}" =~ "$recordName" ]]; then
+    if [[ "${CF_DDNS_DNS[*]}" =~ "$recordName" ]]; then
       # 현재 아이피 주소와 일치하면 넘어가기
       if [[ "$remoteIP" == "$(jq -r ".content" <<< $record)" ]]; then
         echo "Skipping $recordType record with '$recordName' name"
@@ -47,8 +45,8 @@ for (( i = 0; i < $(jq ".result | length" <<< $zones); i++ )); do
       echo "Updating $recordType record with '$recordName' name"
 
       # DNS 업데이트하기
-      curl -sSX PUT "$ENDPOINT/zones/$zoneID/dns_records/$recordID" \
-        -H "Authorization: Bearer $TOKEN" \
+      curl -sSX PUT "$endpoint/zones/$zoneID/dns_records/$recordID" \
+        -H "Authorization: Bearer $CF_DDNS_TOKEN" \
         -H "Content-Type: application/json; charset=utf-8" \
         -d "{\"content\":\"$remoteIP\",\"type\":\"$recordType\",\"ttl\":$recordTTL}"
     fi

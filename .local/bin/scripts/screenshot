@@ -1,10 +1,9 @@
 #!/bin/bash
 
-FILENAME="$HOME/Documents/Screenshots/$(date +%Y-%m-%d_%H-%M-%S-%N).png"
-WEBHOOK_URL="https://discord.com/api/webhooks/873070892148731934/iBMh30xOPCsvnDAbb1rllDTGulJOy-CklJir8wey2YupZ2QJquQWRvNm6PoWtUEqCxqD"
+OUTPUT="${SCREENSHOT_BASEDIR:-$HOME}/$(date +%Y-%m-%d_%H-%M-%S-%N).png"
 
-maim $@ $FILENAME
+maim $@ $OUTPUT
 play -q $HOME/.local/share/audios/screenshot.wav
-xclip -t image/png -selection clipboard < $FILENAME
-http --ignore-stdin -f "$WEBHOOK_URL" @"$FILENAME"
+xclip -t image/png -selection clipboard < $OUTPUT
+http --ignore-stdin -f "$SCREENSHOT_DISCORD_WEBHOOK" @"$OUTPUT"
 

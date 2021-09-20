@@ -1,0 +1,2 @@
+#!/bin/bash
+google-chrome-stable --new-window --app=http://hcvsscn.gsretail.com/cssc/index.html

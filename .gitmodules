@@ -1,0 +1,3 @@
+[submodule ".local/share/fonts/d2coding"]
+	path = .local/share/fonts/d2coding
+	url = https://github.com/kelvinks/D2Coding_Nerd.git

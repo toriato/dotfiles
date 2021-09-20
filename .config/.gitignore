@@ -1,18 +1,16 @@
-# ignore everything but belows
 /*
 !.gitignore
 
-# essentials
-!/profile.d
+!profile/
 
 # command related
-!systemd
-!vim
+!systemd/
+!vim/
 
 # display related
-!fontconfig
-!i3
-!kitty
-!picom
-!polybar
-!rofi
+!fontconfig/
+!i3/
+!kitty/
+!picom/
+!polybar/
+!rofi/

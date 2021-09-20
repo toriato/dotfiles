@@ -12,6 +12,3 @@ export QT4_IM_MODULE=nimf
 export QT_IM_MODULE=nimf
 export XMODIFIERS='@im=nimf'
 nimf &
-
-# TODO: 따로 디렉터리나 파일을 만들어 관리하기
-alias gsm="google-chrome-stable --new-window --app=http://hcvsscn.gsretail.com/cssc/index.html"

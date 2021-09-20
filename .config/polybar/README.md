@@ -1,1 +1,1 @@
-based on https://github.com/adi1090x/polybar-themes
+source: https://github.com/adi1090x/polybar-themes

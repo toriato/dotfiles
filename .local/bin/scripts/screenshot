@@ -1,4 +1,8 @@
 #!/bin/bash
+# dependencies:
+#   - maim (to capture screen)
+#   - sox (to play camera shutter audio)
+#   - httpie (to send discord webhook)
 
 OUTPUT="${SCREENSHOT_BASEDIR:-$HOME}/$(date +%Y-%m-%d_%H-%M-%S-%N).png"
 
@@ -6,4 +10,3 @@ maim $@ $OUTPUT
 play -q $HOME/.local/share/audios/screenshot.wav
 xclip -t image/png -selection clipboard < $OUTPUT
 http --ignore-stdin -f "$SCREENSHOT_DISCORD_WEBHOOK" @"$OUTPUT"
-

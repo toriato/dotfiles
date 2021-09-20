@@ -1,14 +1,16 @@
 #!/bin/bash
-# cloudflare-ddns.sh
-# requires bash, jq and curl to run!
+# dependencies:
+#   - jq (to parse result json)
+#   - curl (to request cloudflare api)
+
 # TODO: error handling :)
 
 # token can be generate from https://dash.cloudflare.com/profile/api-tokens
 # requires Zone.DNS permission to update DNS record
 # more info on https://api.cloudflare.com/#getting-started-requests
 
-# $CF_DDNS_TOKEN
-# $CF_DDNS_DNS
+# $CF_DDNS_TOKEN  - token with Zone.DNS permission
+# $CF_DDNS_DNS    - dns array
 
 remoteIP=$(curl -sSX GET "https://api.ipify.org")
 echo "Current remote IP address is $remoteIP"
